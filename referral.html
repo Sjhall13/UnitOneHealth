@@ -1,133 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Referral – Unit One Health</title>
-    <style>
-        body { font-family: Arial, sans-serif; background:#f7f9fc; margin:0; padding:0; color:#333; }
-        header { background:#0a5cff; color:white; padding:25px; text-align:center; }
-        nav { background:#003ea8; padding:12px; text-align:center; }
-        nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; }
-        .container { max-width:700px; margin:30px auto; background:white; padding:30px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
-        label { font-weight:bold; margin-top:15px; display:block; }
-        input, textarea { width:100%; padding:10px; margin-top:5px; border-radius:6px; border:1px solid #ccc; }
-        .error { color:red; font-size:14px; margin-top:5px; }
-        .success { color:green; font-size:18px; margin-top:20px; font-weight:bold; }
-        button { margin-top:20px; background:#0a5cff; color:white; padding:12px 20px; border:none; border-radius:6px; font-size:16px; cursor:pointer; }
-        button:hover { background:#084bcc; }
-        footer { text-align:center; padding:20px; background:#eaeaea; margin-top:40px; }
-    </style>
-</head>
-<body>
+<form action="https://formspree.io/f/maeypvvq" method="POST">
+  <h2>Referral Form</h2>
 
-<header>
-    <h1>Unit One Health Referral</h1>
-    <p>Fast, secure referral submission</p>
-</header>
+  <label>Your Name (Person Completing Form)</label>
+  <input type="text" name="referrer_name" required>
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="why.html">Why You Need Us</a>
-    <a href="hybrid.html">Our Care Model</a>
-    <a href="referral.html">Referral</a>
-    <a href="contact.html">Contact</a>
-</nav>
+  <label>Office Phone Number</label>
+  <input type="tel" name="office_phone" required>
 
-<div class="container">
-    <h2>Refer a Patient</h2>
-    <p>Please complete the form below. A Unit One Health Case Manager will contact the patient within 24 hours.</p>
+  <label>Office Email</label>
+  <input type="email" name="office_email" required>
 
-    <form id="referralForm">
-        <label>Patient Name *</label>
-        <input type="text" id="patientName" required>
-        <div class="error" id="nameError"></div>
+  <label>Facility Name</label>
+  <input type="text" name="facility_name" required>
 
-        <label>Patient Phone *</label>
-        <input type="text" id="patientPhone" placeholder="555-555-5555" required>
-        <div class="error" id="phoneError"></div>
+  <label>Patient Initials Only</label>
+  <input type="text" name="patient_initials" required>
 
-        <label>Patient Date of Birth *</label>
-        <input type="date" id="patientDOB" required>
-        <div class="error" id="dobError"></div>
+  <label>Patient ZIP Code</label>
+  <input type="text" name="patient_zip" required>
 
-        <label>Referring Provider / Facility *</label>
-        <input type="text" id="provider" required>
-        <div class="error" id="providerError"></div>
+  <label>Reason for Referral (general, non-clinical)</label>
+  <textarea name="reason" rows="4" required></textarea>
 
-        <label>Primary Concern *</label>
-        <input type="text" id="primaryConcern" placeholder="Example: COPD, CHF, post‑discharge follow‑up" required>
-        <div class="error" id="concernError"></div>
+  <button type="submit">Submit Referral</button>
+</form>
 
-        <label>Clinical Background (optional)</label>
-        <textarea rows="3" id="background" placeholder="Relevant clinical context only (no full medical history)."></textarea>
-
-        <label>Reason for Referral *</label>
-        <textarea rows="4" id="reason" required></textarea>
-        <div class="error" id="reasonError"></div>
-
-        <button type="submit">Submit Referral</button>
-    </form>
-
-    <div class="success" id="successMessage"></div>
+<div id="confirmation" style="display:none; margin-top:20px;">
+  <p><strong>Thank you.</strong> A Unit One Health Case Manager will contact you within 1 hour to obtain patient information.</p>
 </div>
 
-<footer>
-    © 2026 Unit One Health LLC — www.UnitOneHealth.com
-</footer>
-
 <script>
-document.getElementById("referralForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+  // Simple client-side confirmation message
+  const form = document.querySelector('form');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('confirmation').style.display = 'block';
+    form.style.display = 'none';
 
-    let valid = true;
-
-    document.querySelectorAll(".error").forEach(e => e.textContent = "");
-
-    const name = document.getElementById("patientName").value.trim();
-    if (name.length < 2) {
-        document.getElementById("nameError").textContent = "Please enter a valid name.";
-        valid = false;
-    }
-
-    const phone = document.getElementById("patientPhone").value.trim();
-    const phoneRegex = /^[0-9]{3}-?[0-9]{3}-?[0-9]{4}$/;
-    if (!phoneRegex.test(phone)) {
-        document.getElementById("phoneError").textContent = "Enter a valid phone number (e.g., 555-555-5555).";
-        valid = false;
-    }
-
-    const dob = document.getElementById("patientDOB").value;
-    if (!dob) {
-        document.getElementById("dobError").textContent = "Please enter a valid date of birth.";
-        valid = false;
-    }
-
-    const provider = document.getElementById("provider").value.trim();
-    if (provider.length < 2) {
-        document.getElementById("providerError").textContent = "Please enter the referring provider or facility.";
-        valid = false;
-    }
-
-    const concern = document.getElementById("primaryConcern").value.trim();
-    if (concern.length < 2) {
-        document.getElementById("concernError").textContent = "Please enter the primary clinical concern.";
-        valid = false;
-    }
-
-    const reason = document.getElementById("reason").value.trim();
-    if (reason.length < 5) {
-        document.getElementById("reasonError").textContent = "Please describe the reason for referral.";
-        valid = false;
-    }
-
-    if (valid) {
-        document.getElementById("successMessage").textContent =
-            "Referral submitted successfully. Thank you!";
-        document.getElementById("referralForm").reset();
-    }
-});
+    // Actually submit the form to Formspree
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+  });
 </script>
 
-</body>
-</html>
+<p><small>
+This referral form collects no PHI. A Unit One Health Case Manager will follow up to obtain patient information securely.
+</small></p>
