@@ -1,51 +1,99 @@
-<form action="https://formspree.io/f/maeypvvq" method="POST">
-  <h2>Referral Form</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral – Unit One Health</title>
+    <style>
+        body { font-family: Arial, sans-serif; background:#f7f9fc; margin:0; padding:0; color:#333; }
+        header { background:#0a5cff; color:white; padding:25px; text-align:center; }
+        nav { background:#003ea8; padding:12px; text-align:center; }
+        nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; }
+        .container { max-width:700px; margin:30px auto; background:white; padding:30px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+        label { font-weight:bold; margin-top:15px; display:block; }
+        input, textarea { width:100%; padding:10px; margin-top:5px; border-radius:6px; border:1px solid #ccc; }
+        button { margin-top:20px; background:#0a5cff; color:white; padding:12px 20px; border:none; border-radius:6px; font-size:16px; cursor:pointer; }
+        button:hover { background:#084bcc; }
+        footer { text-align:center; padding:20px; background:#eaeaea; margin-top:40px; }
+        #confirmation { display:none; margin-top:20px; font-size:18px; font-weight:bold; color:green; }
+    </style>
+</head>
+<body>
 
-  <label>Your Name (Person Completing Form)</label>
-  <input type="text" name="referrer_name" required>
+<header>
+    <h1>Unit One Health Referral</h1>
+    <p>Fast, secure referral submission (No PHI collected)</p>
+</header>
 
-  <label>Office Phone Number</label>
-  <input type="tel" name="office_phone" required>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="why.html">Why You Need Us</a>
+    <a href="hybrid.html">Our Care Model</a>
+    <a href="referral.html">Referral</a>
+    <a href="contact.html">Contact</a>
+</nav>
 
-  <label>Office Email</label>
-  <input type="email" name="office_email" required>
+<div class="container">
+    <h2>Submit a Referral</h2>
+    <p>Please complete the form below. A Unit One Health Case Manager will contact your office within <strong>1 hour</strong> to obtain patient information securely.</p>
 
-  <label>Facility Name</label>
-  <input type="text" name="facility_name" required>
+    <form id="referralForm" action="https://formspree.io/f/maeypvvq" method="POST">
 
-  <label>Patient Initials Only</label>
-  <input type="text" name="patient_initials" required>
+        <label>Your Name (Person Completing Form)</label>
+        <input type="text" name="referrer_name" required>
 
-  <label>Patient ZIP Code</label>
-  <input type="text" name="patient_zip" required>
+        <label>Office Phone Number</label>
+        <input type="tel" name="office_phone" required>
 
-  <label>Reason for Referral (general, non-clinical)</label>
-  <textarea name="reason" rows="4" required></textarea>
+        <label>Office Email</label>
+        <input type="email" name="office_email" required>
 
-  <button type="submit">Submit Referral</button>
-</form>
+        <label>Facility Name</label>
+        <input type="text" name="facility_name" required>
 
-<div id="confirmation" style="display:none; margin-top:20px;">
-  <p><strong>Thank you.</strong> A Unit One Health Case Manager will contact you within 1 hour to obtain patient information.</p>
+        <label>Patient Initials Only</label>
+        <input type="text" name="patient_initials" required>
+
+        <label>Patient ZIP Code</label>
+        <input type="text" name="patient_zip" required>
+
+        <label>Reason for Referral (general, non-clinical)</label>
+        <textarea name="reason" rows="4" required></textarea>
+
+        <button type="submit">Submit Referral</button>
+    </form>
+
+    <div id="confirmation">
+        Thank you. A Unit One Health Case Manager will contact you within 1 hour to obtain patient information.
+    </div>
+
+    <p style="margin-top:20px; font-size:14px; color:#555;">
+        <strong>Important:</strong> This referral form does <u>not</u> collect PHI.  
+        Patient information will be obtained securely by a Case Manager after submission.
+    </p>
 </div>
 
-<script>
-  // Simple client-side confirmation message
-  const form = document.querySelector('form');
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    document.getElementById('confirmation').style.display = 'block';
-    form.style.display = 'none';
+<footer>
+    © 2026 Unit One Health LLC — www.UnitOneHealth.com
+</footer>
 
-    // Actually submit the form to Formspree
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
+<script>
+    const form = document.getElementById("referralForm");
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Show confirmation message
+        document.getElementById("confirmation").style.display = "block";
+        form.style.display = "none";
+
+        // Submit to Formspree
+        fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { "Accept": "application/json" }
+        });
     });
-  });
 </script>
 
-<p><small>
-This referral form collects no PHI. A Unit One Health Case Manager will follow up to obtain patient information securely.
-</small></p>
+</body>
+</html>
