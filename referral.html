@@ -10,8 +10,8 @@
         nav { background:#003ea8; padding:12px; text-align:center; }
         nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; }
         .container { max-width:700px; margin:30px auto; background:white; padding:30px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
-        label { font-weight:bold; margin-top:15px; display:block; }
-        input, textarea { width:100%; padding:10px; margin-top:5px; border-radius:6px; border:1px solid #ccc; }
+        form label { font-weight:bold; margin-top:15px; display:block; text-align:left; }
+        input, textarea, select { width:100%; padding:10px; margin-top:5px; border-radius:6px; border:1px solid #ccc; font-size:15px; }
         button { margin-top:20px; background:#0a5cff; color:white; padding:12px 20px; border:none; border-radius:6px; font-size:16px; cursor:pointer; }
         button:hover { background:#084bcc; }
         footer { text-align:center; padding:20px; background:#eaeaea; margin-top:40px; }
@@ -57,8 +57,15 @@
         <label>Patient ZIP Code</label>
         <input type="text" name="patient_zip" required>
 
-        <label>Reason for Referral (general, non-clinical)</label>
-        <textarea name="reason" rows="4" required></textarea>
+        <label>Reason for Referral</label>
+        <select name="reason" required>
+            <option value="">Select an option</option>
+            <option value="Discharge Management">Discharge Management</option>
+            <option value="Medication Management">Medication Management</option>
+            <option value="Safety Check">Safety Check</option>
+            <option value="SDOH">SDOH</option>
+            <option value="All of the Above">All of the Above</option>
+        </select>
 
         <button type="submit">Submit Referral</button>
     </form>
