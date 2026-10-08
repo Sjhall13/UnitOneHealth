@@ -9,7 +9,7 @@
     <style>
         body { font-family: Arial, sans-serif; background:#f7f9fc; margin:0; padding:0; color:#333; }
         header { background:#ffffff; padding:25px 25px 20px; text-align:center; border-bottom:4px solid #0a5cff; }
-        header .logo { height:88px; width:auto; }
+        header .logo { height:100px; width:auto; }
         header h1 { color:#12325e; margin:14px 0 6px; }
         header p { color:#3a5a86; margin:0; }
         nav { background:#003ea8; padding:12px; text-align:center; }
@@ -22,10 +22,13 @@
         footer { text-align:center; padding:20px; background:#eaeaea; margin-top:40px; }
     
         .form-watermark { position:relative; overflow:hidden; }
-        .form-watermark::before { content:""; position:absolute; inset:0; background:url("u1h-emblem.png") center center / min(560px,90%) no-repeat; opacity:0.10; pointer-events:none; }
+        .form-watermark::before { content:""; position:absolute; inset:0; background:url("u1h-emblem.png") center center / min(480px,85%) no-repeat; opacity:0.08; pointer-events:none; }
         .form-watermark > * { position:relative; }
     
-        .page-photo { width:100%; height:380px; object-fit:cover; border-radius:10px; margin:0 0 22px; display:block; }
+        .page-photo { width:100%; height:auto; border-radius:10px; margin:0 0 22px; display:block; }
+    
+        nav a.cta { background:#ff8c1a; color:#fff; padding:8px 18px; border-radius:20px; margin-left:10px; }
+        nav a.cta:hover { background:#e67a0d; }
     </style>
 </head>
 <body>
@@ -40,8 +43,9 @@
     <a href="index.html">Home</a>
     <a href="why.html">Why You Need Us</a>
     <a href="hybrid.html">Our Care Model</a>
-    <a href="referral.html">Referral</a>
+    <a href="partnerships.html">Partnerships</a>
     <a href="contact.html">Contact</a>
+    <a href="referral.html" class="cta">Refer a Patient Now</a>
 </nav>
 
 <div class="container form-watermark">

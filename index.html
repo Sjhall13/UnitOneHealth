@@ -9,7 +9,7 @@
     <style>
         body { font-family: Arial, sans-serif; background:#f7f9fc; margin:0; padding:0; color:#333; }
         header { background:#ffffff; padding:25px 25px 20px; text-align:center; border-bottom:4px solid #0a5cff; }
-        header .logo { height:88px; width:auto; }
+        header .logo { height:100px; width:auto; }
         header h1 { color:#12325e; margin:14px 0 6px; }
         header p { color:#3a5a86; margin:0; }
         nav { background:#003ea8; padding:12px; text-align:center; }
@@ -17,7 +17,28 @@
         .container { max-width:900px; margin:30px auto; background:white; padding:30px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
         footer { text-align:center; padding:20px; background:#eaeaea; margin-top:40px; }
     
-        .page-photo { width:100%; height:380px; object-fit:cover; border-radius:10px; margin:0 0 22px; display:block; }
+        .page-photo { width:100%; height:auto; border-radius:10px; margin:0 0 22px; display:block; }
+    
+        nav a.cta { background:#ff8c1a; color:#fff; padding:8px 18px; border-radius:20px; margin-left:10px; }
+        nav a.cta:hover { background:#e67a0d; }
+    
+        .hero { background:linear-gradient(135deg,#0a5cff,#003ea8); color:#fff; text-align:center; padding:50px 20px; }
+        .hero h2 { font-size:36px; margin:0 0 10px; color:#fff; }
+        .hero-sub { font-size:20px; margin:0 0 8px; }
+        .hero-area { font-size:16px; opacity:.9; margin:0 0 22px; }
+        .hero-cta { display:inline-block; background:#ff8c1a; color:#fff; padding:14px 32px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:18px; }
+        .hero-cta:hover { background:#e67a0d; }
+    
+        .metrics { background:#eef4ff; text-align:center; padding:40px 20px; margin-top:40px; }
+        .metrics h2 { color:#12325e; margin:0 0 24px; }
+        .metric-row { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; max-width:900px; margin:0 auto; }
+        .metric-value { display:block; font-size:42px; font-weight:bold; color:#0a5cff; }
+        .metric-label { display:block; font-size:14px; color:#3a5a86; margin-top:6px; }
+    
+        .leadership { max-width:900px; margin:40px auto 0; background:white; padding:30px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); text-align:center; }
+        .leadership h2 { color:#12325e; margin-top:0; }
+        .leadership .role { color:#0a5cff; font-weight:bold; }
+        .leadership .mission { font-size:17px; color:#3a5a86; max-width:700px; margin:18px auto 0; }
     </style>
 </head>
 <body>
@@ -32,9 +53,16 @@
     <a href="index.html">Home</a>
     <a href="why.html">Why You Need Us</a>
     <a href="hybrid.html">Our Care Model</a>
-    <a href="referral.html">Referral</a>
+    <a href="partnerships.html">Partnerships</a>
     <a href="contact.html">Contact</a>
+    <a href="referral.html" class="cta">Refer a Patient Now</a>
 </nav>
+<div class="hero">
+    <h2>Prevent Avoidable Readmissions</h2>
+    <p class="hero-sub">First In-Home Visit Within 48 Hours of Discharge</p>
+    <p class="hero-area">Serving Prince William County</p>
+    <a href="referral.html" class="hero-cta">Refer a Patient Now</a>
+</div>
 
 <div class="container">
     <img class="page-photo" src="home-visit.jpg" alt="Home health nurse checking a patient's blood pressure during a home visit">
@@ -49,6 +77,23 @@
     </p>
 </div>
 
+<!-- Outcomes We Track: replace the em-dashes with real figures when data is available. Do NOT publish invented numbers. -->
+<div class="metrics">
+    <h2>Outcomes We Track</h2>
+    <div class="metric-row">
+        <div class="metric"><span class="metric-value">&mdash;</span><span class="metric-label">30-Day Readmission Rate</span></div>
+        <div class="metric"><span class="metric-value">&mdash;</span><span class="metric-label">Medication Reconciliation Completion</span></div>
+        <div class="metric"><span class="metric-value">&mdash;</span><span class="metric-label">Visit Completion Rate</span></div>
+        <div class="metric"><span class="metric-value">&mdash;</span><span class="metric-label">Patient Satisfaction</span></div>
+    </div>
+</div>
+
+<div class="leadership">
+    <h2>Leadership</h2>
+    <p><strong>Scott Hall, BSN, MSN-Ed, RN</strong><br><span class="role">Founder, Chief Executive Officer &amp; Compliance Officer</span></p>
+    <p>A nurse and veteran, Scott founded Unit One Health to close the most dangerous gap in healthcare: the days after discharge. Unit One Health is a veteran-owned, nurse-led organization built on evidence-based transitional care.</p>
+    <p class="mission"><em>&ldquo;To reduce preventable hospital readmissions and improve post-discharge health outcomes through evidence-based, nurse-led transitional care delivered with compassion, clinical excellence, and unwavering integrity.&rdquo;</em></p>
+</div>
 <footer>
     © 2026 Unit One Health LLC — www.UnitOneHealth.com
 </footer>

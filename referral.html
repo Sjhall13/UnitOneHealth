@@ -9,7 +9,7 @@
     <style>
         body { font-family: Arial, sans-serif; background:#f7f9fc; margin:0; padding:0; color:#333; }
         header { background:#ffffff; padding:25px 25px 20px; text-align:center; border-bottom:4px solid #0a5cff; }
-        header .logo { height:88px; width:auto; }
+        header .logo { height:100px; width:auto; }
         header h1 { color:#12325e; margin:14px 0 6px; }
         header p { color:#3a5a86; margin:0; }
         nav { background:#003ea8; padding:12px; text-align:center; }
@@ -23,8 +23,11 @@
         #confirmation { display:none; margin-top:20px; font-size:18px; font-weight:bold; color:green; }
     
         .form-watermark { position:relative; overflow:hidden; }
-        .form-watermark::before { content:""; position:absolute; inset:0; background:url("u1h-emblem.png") center center / min(560px,90%) no-repeat; opacity:0.10; pointer-events:none; }
+        .form-watermark::before { content:""; position:absolute; inset:0; background:url("u1h-emblem.png") center center / min(480px,85%) no-repeat; opacity:0.08; pointer-events:none; }
         .form-watermark > * { position:relative; }
+    
+        nav a.cta { background:#ff8c1a; color:#fff; padding:8px 18px; border-radius:20px; margin-left:10px; }
+        nav a.cta:hover { background:#e67a0d; }
     </style>
 </head>
 <body>
@@ -39,13 +42,14 @@
     <a href="index.html">Home</a>
     <a href="why.html">Why You Need Us</a>
     <a href="hybrid.html">Our Care Model</a>
-    <a href="referral.html">Referral</a>
+    <a href="partnerships.html">Partnerships</a>
     <a href="contact.html">Contact</a>
+    <a href="referral.html" class="cta">Refer a Patient Now</a>
 </nav>
 
 <div class="container form-watermark">
     <h2>Submit a Referral</h2>
-    <p>Please complete the form below. A Unit One Health Case Manager will contact your office within <strong>1 hour</strong> to obtain patient information securely.</p>
+    <p>Please complete the form below. A Unit One Health Case Manager will contact your office within <strong>4 business hours</strong> to obtain patient information securely.</p>
 
     <form id="referralForm" action="https://formspree.io/f/maeypvvq" method="POST">
 
@@ -81,7 +85,7 @@
     </form>
 
     <div id="confirmation">
-        Thank you. A Unit One Health Case Manager will contact you within 1 hour to obtain patient information.
+        Thank you. A Unit One Health Case Manager will contact you within 4 business hours to obtain patient information.
     </div>
 
     <p style="margin-top:20px; font-size:14px; color:#555;">
